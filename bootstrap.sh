@@ -20,7 +20,7 @@ case "$os" in
 	;;
 	*BSD)
     echo "Assuming host is BSD";
-		if [[ `groups` == *wheel* ]] || [[ `groups` == *sudo* ]]; then
+		if [ `groups` == *wheel* ] || [ `groups` == *sudo* ]; then
 			sudo pkg install git gmake gnupg zsh bash nano screen;
 		fi
 		os=3;
