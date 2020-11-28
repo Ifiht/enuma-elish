@@ -28,6 +28,6 @@ case "$os" in
 esac
 
 hash -r
-git clone https://github.com/zerotier/ZeroTierOne.git
+git clone https://github.com/Ifiht/ZeroTierOne.git
 cd ZeroTierOne
 git checkout prod
