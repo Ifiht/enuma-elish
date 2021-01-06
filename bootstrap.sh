@@ -10,17 +10,22 @@ case "$os" in
 	;;
 	linux)
 		echo "Assuming host is Linux";
-		apt install ant build-essential clang cloud-init coreutils dbus dbus-x11 emacs figlet file findutils fortune-mod gcc geoip-database git gnupg gzip leiningen less lsb-base lsb-release lshw lsof make multiarch-support nano ncurses-base net-tools openjdk-8-jdk pngcrush python3.6 rand readline-common screen tcpdump telnet tmux toilet xauth xdelta3 xfsprogs zsh;
+		sudo apt update && sudo apt upgrade -y;
+		sudo apt install ant build-essential clang cloud-init coreutils dbus dbus-x11 emacs figlet file findutils fortune-mod gcc geoip-database git gnupg gzip leiningen less lsb-base lsb-release lshw lsof make multiarch-support nano ncurses-base net-tools openjdk-8-jdk pngcrush python3.6 rand readline-common screen tcpdump telnet tmux toilet xauth xdelta3 xfsprogs zsh;
 		os=2;
 	;;
 	*Microsoft)
 		echo "Assuming host is WSL";
-		apt install ant build-essential clang cloud-init coreutils dbus dbus-x11 emacs figlet file findutils fortune-mod gcc geoip-database git gnupg gzip leiningen less lsb-base lsb-release lshw lsof make multiarch-support nano ncurses-base net-tools openjdk-8-jdk pngcrush python3.6 rand readline-common screen tcpdump telnet tmux toilet xauth xdelta3 xfsprogs zsh;
+		sudo apt update && sudo apt upgrade -y;
+		sudo apt install ant build-essential clang cloud-init coreutils dbus dbus-x11 emacs figlet file findutils fortune-mod gcc geoip-database git gnupg gzip leiningen less lsb-base lsb-release lshw lsof make multiarch-support nano ncurses-base net-tools openjdk-8-jdk pngcrush python3.6 rand readline-common screen tcpdump telnet tmux toilet xauth xdelta3 xfsprogs zsh;
 		os=2;
 	;;
 	*BSD)
 		echo "Assuming host is BSD";
-		sudo pkg install git gmake gnupg zsh bash nano screen;
+		sudo freebsd-update fetch && sudo freebsd-update install;
+		sudo pkg upgrade;
+		sudo portsnap auto;
+		sudo pkg install git gmake gnupg zsh bash nano ruby screen;
 		os=3;
 	;;
 	*)
